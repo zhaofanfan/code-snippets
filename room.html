@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html data-dpr="1">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <meta content="telephone=no" name="format-detection" />
+        <title>加入房间</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <style type="text/css">
+            *{margin: 0;padding: 0;border: 0}
+			body{font-size: 32px;font-size: .32rem;width: 7.5rem;max-width: 1080px;margin: 0 auto;background: #f6f6f6;font-family: 'STHeiti', 'Microsoft YaHei', Helvetica, Arial, sans-serif;-webkit-tap-highlight-color: rgba(0, 0, 0, 0)}
+			a, a:active, a:hover, a:focus, a:visited{text-decoration: none}
+			a, img{-webkit-touch-callout: none}
+			ol, ul, li{list-style: none}
+			.clearfix:after{display: block;clear: both;content: "";visibility: hidden;height: 0}
+			.header-img{width: 100%;}
+			.room-wrapper{padding: .1rem .2rem;}
+			.room-wrapper h2{font-size: 0.4rem;font-weight: normal;}
+			.room-wrapper li{float: left;width: 23%;margin: .2rem 1% .4rem;position: relative}
+			.room-wrapper li .member{padding-top: 100%;background-image: url(wait-join.png);background-repeat: no-repeat;background-position: center center;background-size: 100% 100%;-webkit-background-size: 100% 100%;}
+			.room-wrapper li .member-name{position: absolute;left: 0;bottom: -0.5rem;width: 100%;text-align: center}
+			.join-btn{display: block;width: 100%;height: 1rem;line-height: 1rem;border-radius: 0.5rem;background: #64ba25;text-align: center;font-size: .5rem;color: #ffffff}
+			.download-btn{display: block;margin-top: 0.5rem;width: 100%;height: .7rem;line-height: .7rem;border-radius: 0.35rem;background: #1fb4ec;text-align: center;font-size: .3rem;color: #ffffff}
+        </style>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            var Dpr = 1,
+                uAgent = window.navigator.userAgent;
+            var isIOS = uAgent.match(/iphone/i);
+
+            function resizeRoot() {
+                var wWidth = (screen.width > 0) ? (window.innerWidth >= screen.width || window.innerWidth == 0) ? screen.width :
+                    window.innerWidth : window.innerWidth,
+                    wDpr, wFsize;
+                var wHeight = (screen.height > 0) ? (window.innerHeight >= screen.height || window.innerHeight == 0) ?
+                    screen.height : window.innerHeight : window.innerHeight;
+                if (window.devicePixelRatio) {
+                    wDpr = window.devicePixelRatio;
+                } else {
+                    wDpr = isIOS ? wWidth > 818 ? 3 : wWidth > 480 ? 2 : 1 : 1;
+                }
+                if (isIOS) {
+                    wWidth = screen.width;
+                    wHeight = screen.height;
+                }
+
+                if (wWidth > wHeight) {
+                    wWidth = wHeight;
+                }
+                wFsize = wWidth > 1080 ? 144 : wWidth / 7.5;
+                wFsize = wFsize > 32 ? wFsize : 32;
+                window.screenWidth_ = wWidth;
+
+                // document.getElementsByTagName('html')[0].dataset.dpr = wDpr;
+                document.getElementsByTagName('html')[0].style.fontSize = wFsize + 'px';
+                // alert("fz="+wFsize+";dpr="+window.devicePixelRatio+";UA="+uAgent+";width="+wWidth+";sw="+screen.width+";wiw="+window.innerWidth+";wsw="+window.screen.width+window.screen.availWidth);
+            }
+            resizeRoot();
+
+            var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            window.addEventListener(resizeEvt, resizeRoot, false);
+        </script>
+        <img class="header-img" src="01.jpg" alt />
+        <div class="room-wrapper">
+            <h2>房间成员</h2>
+            <ul class="member-list clearfix">
+                <li>
+                    <div class="member owner"></div>
+                    <div class="member-name">Musk</div>
+                </li>
+                <li>
+                    <div class="member"></div>
+                </li>
+                <li>
+                    <div class="member"></div>
+                </li>
+                <li>
+                    <div class="member"></div>
+                </li>
+                <li>
+                    <div class="member"></div>
+                </li>
+            </ul>
+            <a href="javascript:;" class="join-btn">加入房间</a>
+            <a href="javascript:;" class="download-btn">下载游戏</a>
+        </div>
+    </body>
+
+</html>
