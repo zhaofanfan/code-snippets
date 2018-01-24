@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>CSS shapes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .clearfix:after {
+                visibility: hidden;
+                display: block;
+                font-size: 0;
+                content: " ";
+                clear: both;
+                height: 0;
+            }
+            
+            .clearfix {
+                *zoom: 1;
+            }
+            
+            .shapes div {
+                float: left;
+                margin: 20px;
+            }
+            
+            .traingle {
+                width: 0;
+                height: 0;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+                border-bottom: 100px solid yellowgreen;
+            }
+            
+            .notching {
+                width: 40px;
+                height: 40px;
+                padding: 40px;
+                background: linear-gradient(135deg, transparent 15px, yellowgreen 0) top left, linear-gradient(-135deg, transparent 15px, yellowgreen 0) top right, linear-gradient(-45deg, transparent 15px, yellowgreen 0) bottom right, linear-gradient(45deg, transparent 15px, yellowgreen 0) bottom left;
+                background-size: 50% 50%;
+                background-repeat: no-repeat;
+            }
+            
+            .trapezoid {
+                position: relative;
+                width: 60px;
+                padding: 60px;
+            }
+            
+            .trapezoid::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                transform: perspective(20px) scaleY(1.3) rotateX(5deg);
+                transform-origin: bottom;
+                background: yellowgreen;
+            }
+            
+            .border-trapezoid {
+                position: relative;
+                width: 60px;
+                border-top: 60px solid yellowgreen;
+                border-left: 40px solid transparent;
+                border-right: 40px solid transparent;
+            }
+            
+            .pentagon {
+                position: relative;
+                width: 60px;
+                border-bottom: 60px solid yellowgreen;
+                border-left: 40px solid transparent;
+                border-right: 40px solid transparent;
+            }
+            
+            .pentagon::before {
+                content: "";
+                position: absolute;
+                top: 60px;
+                left: -40px;
+                border-top: 60px solid yellowgreen;
+                border-left: 70px solid transparent;
+                border-right: 70px solid transparent;
+            }
+            
+            .hexagon {
+                position: relative;
+                width: 60px;
+                border-bottom: 60px solid yellowgreen;
+                border-left: 40px solid transparent;
+                border-right: 40px solid transparent;
+            }
+            
+            .hexagon::before {
+                content: "";
+                position: absolute;
+                width: 60px;
+                height: 0px;
+                top: 60px;
+                left: -40px;
+                border-top: 60px solid yellowgreen;
+                border-left: 40px solid transparent;
+                border-right: 40px solid transparent;
+            }
+            
+            .octagon {
+                position: relative;
+                width: 40px;
+                height: 100px;
+                background: yellowgreen;
+            }
+            
+            .octagon::before {
+                content: "";
+                height: 60px;
+                position: absolute;
+                top: 0;
+                left: 40px;
+                border-left: 30px solid yellowgreen;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+            }
+            
+            .octagon::after {
+                content: "";
+                height: 60px;
+                position: absolute;
+                top: 0;
+                left: -30px;
+                border-right: 30px solid yellowgreen;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+            }
+            
+            .star {
+                margin: 50px 0;
+                position: relative;
+                width: 0;
+                border-right: 100px solid transparent;
+                border-bottom: 70px solid yellowgreen;
+                border-left: 100px solid transparent;
+                transform: rotate(35deg) scale(.6);
+            }
+            
+            .star:before {
+                content: '';
+                position: absolute;
+                border-bottom: 80px solid yellowgreen;
+                border-left: 30px solid transparent;
+                border-right: 30px solid transparent;
+                top: -45px;
+                left: -65px;
+                transform: rotate(-35deg);
+            }
+            
+            .star:after {
+                content: '';
+                position: absolute;
+                top: 3px;
+                left: -105px;
+                border-right: 100px solid transparent;
+                border-bottom: 70px solid yellowgreen;
+                border-left: 100px solid transparent;
+                transform: rotate(-70deg);
+            }
+            
+            .ellipse {
+                width: 120px;
+                height: 160px;
+                background-color: yellowgreen;
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            }
+            
+            .verticalBar div {
+                float: left;
+                position: relative;
+                width: 200px;
+                height: 60px;
+                line-height: 60px;
+                margin: 20px;
+                background-color: #ddd;
+                text-align: center;
+            }
+            
+            .border {
+                border-left: 5px solid deeppink;
+            }
+            
+            .pesudo::after {
+                content: "";
+                width: 5px;
+                height: 60px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: deeppink;
+            }
+            
+            .boxShadow {
+                margin-left: 25px;
+                box-shadow: -5px 0px 0 0 deeppink;
+            }
+            
+            .insertBoxShadow {
+                box-shadow: inset 5px 0px 0 0 deeppink;
+            }
+            
+            .filterDropShadow {
+                margin-left: 25px;
+                -webkit-filter: drop-shadow(-5px 0 0 deeppink);
+            }
+            
+            .linearGradient {
+                background-image: linear-gradient(90deg, deeppink 0px, deeppink 5px, transparent 5px);
+            }
+            
+            .outline {
+                margin-left: 25px;
+                height: 50px;
+                outline: 5px solid deeppink;
+            }
+            
+            .outline:after {
+                position: absolute;
+                content: "outline实现";
+                top: -5px;
+                bottom: -5px;
+                right: -5px;
+                left: 0;
+                background: #ddd;
+            }
+            
+            .scroll {
+                width: 205px !important;
+                background-color: deeppink !important;
+                overflow-y: scroll;
+            }
+            
+            .scroll::-webkit-scrollbar {
+                width: 200px;
+                background-color: #ddd;
+            }
+            
+            .container {
+                width: 128px;
+                height: 100px;
+                margin-left: -64px;
+                margin-bottom: 100px;
+                -webkit-transition: -webkit-transform 1s;
+                -moz-transition: -moz-transform 1s;
+                transition: transform 1s;
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+                position: absolute;
+                left: 50%;
+            }
+            
+            .container:hover {
+                -webkit-transform: scale(1.2) rotateX(-20deg) rotateY(360deg);
+                -moz-transform: scale(1.2) rotateX(-20deg) rotateY(360deg);
+                transform: scale(1.2) rotateX(-20deg) rotateY(360deg);
+                -webkit-transition: -webkit-transform 5s;
+                -moz-transition: -moz-transform 5s;
+                transition: transform 5s;
+            }
+            
+            .piece {
+                width: 128px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+                -webkit-transition: opacity 1s, -webkit-transform 1s;
+                -moz-transition: opacity 1s, -moz-transform 1s;
+                transition: opacity 1s, transform 1s;
+                position: absolute;
+                bottom: 0;
+            }
+            
+            .pie3 {
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                background: yellowgreen;
+                background-image: linear-gradient(to right, transparent 50%, currentColor 0);
+                color: #655;
+            }
+            
+            .pie3::before {
+                content: '';
+                display: block;
+                margin-left: 50%;
+                height: 100%;
+                border-radius: 0 100% 100% 0 / 50%;
+                background-color: inherit;
+                transform-origin: left;
+                animation: spin 3s linear infinite, bg 6s step-end infinite;
+            }
+            
+            @keyframes spin {
+                to {
+                    transform: rotate(.5turn);
+                }
+            }
+            
+            @keyframes bg {
+                50% {
+                    background: currentColor;
+                }
+            }
+            
+            .test1 {
+                width: 90px;
+                height: 60px;
+                -webkit-animation-name: skyset;
+                -webkit-animation-duration: 2000ms;
+                -webkit-animation-iteration-count: infinite;
+                /* 无限循环 */
+                -webkit-animation-timing-function: step-start;
+                /* steps(1, start) */
+            }
+            
+            .test2 {
+                -webkit-animation-timing-function: step-end;
+                /* steps(1, end) */
+            }
+            
+            @-webkit-keyframes skyset {
+                0% {
+                    background: red;
+                }
+                50% {
+                    background: blue
+                }
+                100% {
+                    background: yellow;
+                }
+            }
+            
+            .studyBox {
+                width: 250px;
+                height: 250px;
+                line-height: 250px;
+                margin: 20px auto;
+                background: #9965e2;
+                font-size: 24px;
+                color: #fff;
+                transform-style: preserve-3d;
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                transition: .2s;
+                text-align: center;
+            }
+            
+            .studyBox:hover {
+                box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, .6);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="shapes clearfix">
+            <div class="traingle"></div>
+            <div class="notching"></div>
+            <div class="trapezoid"></div>
+            <div class="border-trapezoid"></div>
+            <div class="pentagon"></div>
+            <div class="hexagon"></div>
+            <div class="octagon"></div>
+            <div class="star"></div>
+            <div class="ellipse"></div>
+            <div class="pie3"></div>
+        </div>
+        <!-- 单标签左边竖条的实现方式 -->
+        <div class="verticalBar clearfix">
+            <!-- 1、使用 border -->
+            <div class="border">border实现</div>
+            <!-- 2、使用伪元素 -->
+            <div class="pesudo">伪元素实现</div>
+            <!-- 3、外 box-shadow -->
+            <div class="boxShadow">外 box-shadow 实现</div>
+            <!-- 4、内 box-shadow -->
+            <div class="insertBoxShadow">内 box-shadow 实现</div>
+            <!-- 5、drop-shadow -->
+            <div class="filterDropShadow">drop-shadow 实现</div>
+            <!-- 6、渐变 -->
+            <div class="linearGradient">线性渐变实现</div>
+            <!-- 7、outline -->
+            <div class="outline">outline实现</div>
+            <!-- 8、滚动条 -->
+            <div class="scroll"></div>
+            <div class="test1">step-start</div>
+            <div class="test1 test2">step-end</div>
+        </div>
+        <div class="studyBox" data-revised="0">前端初窥</div>
+        <div id="container" class="container"></div>
+        <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            var jq = $.noConflict();
+            (function() {
+                if (typeof window.screenX === "number") {
+                    // 随机颜色HSL
+                    var randomHsl = function() {
+                            return "hsla(" + Math.round(360 * Math.random()) + "," + "60%, 50%, .75)";
+                        },
+                        // CSS transform变换应用
+                        transform = function(element, value, key) {
+                            key = key || "Transform";
+                            ["Moz", "O", "Ms", "Webkit", ""].forEach(function(prefix) {
+                                element.style[prefix + key] = value;
+                            });
+
+                            return element;
+                        },
+                        // 浏览器选择器API
+                        $ = function(selector) {
+                            return document.querySelector(selector);
+                        },
+                        $$ = function(selector) {
+                            return document.querySelectorAll(selector);
+                        };
+
+                    // 显示图片
+                    var htmlPic = '',
+                        arrayPic = [1, 8, 3, 4, 6, 7, 10, 13, 15],
+                        rotate = 360 / arrayPic.length;
+
+                    arrayPic.forEach(function(i) {
+                        htmlPic = htmlPic + '<img id="piece' + i + '" src="http://www.onhorizonline.com/images/mm/mm' + i + '.jpg" class="piece" />';
+                    });
+
+                    // 元素
+                    var eleContainer = $("#container"),
+                        indexPiece = 0;
+                    // 元素
+                    var elePics = $$(".piece"),
+                        transZ = 64 / Math.tan((rotate / 2 / 180) * Math.PI);
+
+                    eleContainer.innerHTML = htmlPic;
+                    eleContainer.addEventListener("click", function() {
+                        //transform(this, "rotateY(" + (-1 * rotate * ++indexPiece) + "deg)");
+                    });
+
+                    arrayPic.forEach(function(i, j) {
+                        transform($("#piece" + i), "rotateY(" + j * rotate + "deg) translateZ(" + (transZ + 20) + "px)");
+                    });
+
+                    // 垂直位置居中 - Chrome浏览器
+                    var funStageValign = function(element) {
+                        var scrollTop = document.documentElement.scrollTop,
+                            clientHeight = document.documentElement.clientHeight;
+                        offsetTop = element.getBoundingClientRect().top;
+
+                        if (parseInt(window.getComputedStyle(element).top) === 0) {
+                            element.style.top = scrollTop + (window.innerHeight - 300) / 2 - offsetTop;
+                        } else {
+                            element.style.top = "0px";
+                        }
+                    };
+                } else {
+                    alert("你好，养猪场不是飞机场，是开不了战斗机的！");
+                }
+
+                var overChange = {
+                    init: function() {
+                        var _this = this;
+                        _this.box = jq('.studyBox');
+                        _this.overFun();
+                    },
+                    overFun: function() {
+                        var _this = this;
+                        var off = false;
+                        jq(_this.box).on('mousemove', function(ev) {
+                            var ev = ev || event;
+                            var X = ev.clientX;
+                            var Y = ev.clientY;
+                            var posX = X - jq(this).offset().left;
+                            var posY = Y + jq(document).scrollTop() - jq(this).offset().top;
+                            var rotateX = (posY - 135) / 16;
+                            var rotateY = (posX - 135) / 16;
+                            var That = jq(this);
+                            jq(this).css({
+                                'transform': 'scale(1.1,1.1) rotateY(' + rotateY + 'deg) rotateX(' + -rotateX + 'deg) translateZ(50px)'
+                            });
+                            if (!off) {
+                                off = true;
+                                setTimeout(function() {
+                                    That.css('transition', '0s');
+                                }, 300);
+                            };
+                        });
+                        jq(_this.box).on('mouseleave', function() {
+                            jq(this).get(0).style.cssText = '';
+                            jq(this).css('transition', '0.2s');
+                            var _this = jq(this);
+                            setTimeout(function() {
+                                _this.css('transition', '0.2s');
+                                off = false;
+                            }, 300);
+                            off = false;
+                        });
+                    }
+                };
+                overChange.init();
+            })();
+        </script>
+    </body>
+
+</html>
